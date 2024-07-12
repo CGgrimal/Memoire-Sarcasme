@@ -70,16 +70,16 @@ def main():
     model = Word2Vec(sentences=processed_texts, vector_size=200, window=5, min_count=1, workers=4)
 
     # Save the entire Word2Vec model
-    model.save(f"{output_file}_vectorized.model")
+    model.save(f"{output_name}_vectorized.model")
 
     # Alternatively, save only the word vectors
-    model.wv.save_word2vec_format(f"{output_file}_word_vectors.bin", binary=True)
+    model.wv.save_word2vec_format(f"{output_name}_word_vectors.bin", binary=True)
 
     # Vectorize each text entry
     text_vectors = [vectorize_text(text, model) for text in texts]
 
     # Save the text vectors to a file for later use
-    np.save(f"{output_file}_text_vectors.npy", text_vectors)
+    np.save(f"{output_name}_text_vectors.npy", text_vectors)
     print("Text vectors saved successfully.")
 
 def check_model(filename):
