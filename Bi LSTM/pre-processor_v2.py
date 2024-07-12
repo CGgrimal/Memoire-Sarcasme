@@ -11,6 +11,7 @@ import numpy as np
 nltk.download('punkt')
 nltk.download('stopwords')
 filename = str(input("filename: "))
+output_name = str(input("output file: "))
 
 def preprocess_text(text):
     if not isinstance(text, str):
@@ -66,19 +67,19 @@ def main():
         print(text)
 
     # Train Word2Vec model
-    model = Word2Vec(sentences=processed_texts, vector_size=100, window=5, min_count=1, workers=4)
+    model = Word2Vec(sentences=processed_texts, vector_size=200, window=5, min_count=1, workers=4)
 
     # Save the entire Word2Vec model
-    model.save(f"{filename}_vectorized.model")
+    model.save(f"{output_name}_vectorized.model")
 
     # Alternatively, save only the word vectors
-    model.wv.save_word2vec_format(f"{filename}_word_vectors.bin", binary=True)
+    model.wv.save_word2vec_format(f"{output_name}_word_vectors.bin", binary=True)
 
     # Vectorize each text entry
     text_vectors = [vectorize_text(text, model) for text in texts]
 
     # Save the text vectors to a file for later use
-    np.save(f"{filename}_text_vectors.npy", text_vectors)
+    np.save(f"{output_name}_text_vectors.npy", text_vectors)
     print("Text vectors saved successfully.")
 
 def check_model(filename):
@@ -97,7 +98,7 @@ def check_model(filename):
     except Exception as e:
         print(f"Error loading word vectors: {e}")
         return
-
+    
     # Check if specific words are in the vocabulary
     words_to_check = ['travel', 'problem']
     for word in words_to_check:
@@ -132,7 +133,8 @@ def check_model(filename):
             print(f"  {similar_word}: {similarity}")
     else:
         print(f"'{word}' not found in the model.")
+    
 
 if __name__ == "__main__":
     main()
-    check_model(filename)
+    #check_model(filename)
