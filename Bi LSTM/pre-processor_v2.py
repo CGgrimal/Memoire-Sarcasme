@@ -36,6 +36,11 @@ def vectorize_text(text, model):
     else:
         return np.zeros(model.vector_size)
 
+# Function to save Word2Vec model as .kv
+def save_word_vectors(model, filename):
+    word_vectors = model.wv
+    word_vectors.save(filename)
+
 def main():
     filename_ext = filename + ".csv"
     
@@ -67,18 +72,20 @@ def main():
         print(text)
 
     # Train Word2Vec model
-    model = Word2Vec(sentences=processed_texts, vector_size=200, window=5, min_count=1, workers=4)
+    word2vec_model = Word2Vec(sentences=processed_texts, vector_size=200, window=5, min_count=1, workers=4)
 
     # Save the entire Word2Vec model
-    model.save(f"{output_name}_vectorized.model")
+    word2vec_model.save(f"{output_name}_vectorized.model")
+    print("Model saved successfully")
 
     # Alternatively, save only the word vectors
-    model.wv.save_word2vec_format(f"{output_name}_word_vectors.bin", binary=True)
-
-    # Vectorize each text entry
-    text_vectors = [vectorize_text(text, model) for text in texts]
+    save_word_vectors(word2vec_model, f"{output_name}_word_vectors.kv")
+    print("Word vectors saved successfully")
+    # Bin saving, deprecated
+    #model.wv.save_word2vec_format(f"{output_name}_word_vectors.bin", binary=True)
 
     # Save the text vectors to a file for later use
+    text_vectors = np.array([np.mean([word2vec_model.wv[word] for word in text if word in word2vec_model.wv] or [np.zeros(200)], axis=0) for text in processed_texts])
     np.save(f"{output_name}_text_vectors.npy", text_vectors)
     print("Text vectors saved successfully.")
 
