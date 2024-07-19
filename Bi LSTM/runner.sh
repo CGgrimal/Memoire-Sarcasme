@@ -14,7 +14,7 @@ if [ ! -f pre_processor_non_verbal.py ]; then
 fi
 
 echo "Running pre-processor..."
-python3 script1.py reduced_1000.csv r1000
+python3 pre_processor_non_verbal.py reduced_1000.csv r1000
 
 if [ ! -f Bi_LSTM_v5_nonverbal.py ]; then
     echo "Bi-LSTM file not found!"
@@ -22,7 +22,7 @@ if [ ! -f Bi_LSTM_v5_nonverbal.py ]; then
 fi
 
 echo "Running Bi-LSTM model..."
-python3 script2.py reduced_1000 r1000_word_vectors.kv
+python3 Bi_LSTM_v5_nonverbal.py reduced_1000 r1000_word_vectors.kv
 
 echo "All tasks completed successfully!"
 
