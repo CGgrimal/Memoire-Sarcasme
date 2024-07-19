@@ -8,13 +8,13 @@ fi
 echo "Installing Python libraries from requirements.txt..."
 pip install -r requirements.txt
 
-if [ ! -f pre_processor_non_verbal.py ]; then
+if [ ! -f pre_processor_nonverbal.py ]; then
     echo "pre-processor file not found!"
     exit 1
 fi
 
 echo "Running pre-processor..."
-python3 pre_processor_non_verbal.py reduced_1000.csv r1000
+python3 pre_processor_nonverbal.py reduced_1000.csv r1000
 
 if [ ! -f Bi_LSTM_v5_nonverbal.py ]; then
     echo "Bi-LSTM file not found!"
