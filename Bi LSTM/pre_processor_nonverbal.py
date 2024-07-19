@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+import sys
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
@@ -41,17 +42,17 @@ def save_word_vectors(model, filename):
     word_vectors.save(filename)
 
 def main():
-
     if len(sys.argv) not in [2, 3]:
         sys.exit("Usage: python3 pre_processor_nonverbal.py dataset.csv output_prefix")
-    filename_ext = sys.argv[0]
-    output_name = sys.argv[1]
+    
+    filename_ext = sys.argv[1]
+    output_name = sys.argv[2]
     
     # Load the CSV file into a DataFrame with error handling for irregular rows
     try:
         df = pd.read_csv(filename_ext, sep = '|', header = 0)
     except pd.errors.ParserError as e:
-        print(f"Error reading {filename}: {e}")
+        print(f"Error reading {filename_ext}: {e}")
         return
 
     column_name = "comment"
@@ -132,7 +133,6 @@ def check_model(filename):
     else:
         print(f"One or both words ('{word1}', '{word2}') are not in the model.")
     
-
     # Find the most similar words to a given word
     word = 'home'
     if word in word_vectors:
@@ -142,8 +142,8 @@ def check_model(filename):
             print(f"  {similar_word}: {similarity}")
     else:
         print(f"'{word}' not found in the model.")
-    
 
 if __name__ == "__main__":
     main()
-    #check_model(filename)
+    # Uncomment the line below to run the check_model function
+    # check_model(sys.argv[2])

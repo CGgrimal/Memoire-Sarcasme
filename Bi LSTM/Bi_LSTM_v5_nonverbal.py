@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import sys
 from sklearn.model_selection import train_test_split
 from gensim.models import KeyedVectors
 from tensorflow.keras.models import Sequential
@@ -45,7 +46,6 @@ class DataGenerator(Sequence):
         sequences_padded = pad_sequences(sequences, maxlen=self.max_len, dtype='float32', padding='post', truncating='post', value=0.0)
         return np.array(sequences_padded)
 
-
 def load_data(filename):
     filename = filename + ".csv"
     column_name = "comment"
@@ -73,14 +73,11 @@ def build_model(input_shape, output_size=20):
     return model
 
 def main():
-    
-    if len(sys.argv) not in [2, 3]:
+    if len(sys.argv) != 3:
         sys.exit("Usage: python3 Bi_LSTM_v5_nonverbal.py dataset.csv word_vectors.kv")
 
-    filename_ext = sys.argv[0]
-    output_name = sys.argv[1]
-    dataset_filename = sys.argv[0]
-    word_vectors_filename = sys.argv[1]
+    dataset_filename = sys.argv[1]
+    word_vectors_filename = sys.argv[2]
     texts, labels = load_data(dataset_filename)
     word_vectors = load_word_vectors(word_vectors_filename)
 
