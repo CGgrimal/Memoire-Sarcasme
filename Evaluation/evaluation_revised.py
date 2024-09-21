@@ -5,6 +5,7 @@ from gensim.models import KeyedVectors
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split
 from Bi_LSTM_v5 import DataGenerator
+from Transfer_fasttext_v3 import load_and_reduce_word_vectors
 
 # Load the dataset
 def load_data(filename):
