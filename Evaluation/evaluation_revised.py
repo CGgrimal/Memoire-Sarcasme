@@ -62,12 +62,12 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     print(f"Recall: {recall}")
     print(f"F1 Score: {f1}")
 
-# Main function to execute the evaluation
+
 def main():
     # English word2vec evaluation
-    model_path = "bi_LSTM_model_v5_pretrained.keras"  # Path to your saved model
-    dataset_filename = "reduced_1000.csv"  # Path to your English dataset
-    word_vectors_filename = "google_word2vec.bin"  # Path to your English word vectors
+    model_path = "bi_LSTM_model_v5_pretrained.keras"  
+    dataset_filename = "reduced_1000.csv"  
+    word_vectors_filename = "google_word2vec.bin"  
 
     # Evaluate the English model
     evaluate_model(model_path, dataset_filename, word_vectors_filename, "en")
