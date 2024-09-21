@@ -1,0 +1,16 @@
+
+3. **Run LibreTranslate Container**:
+   - Open PowerShell or Command Prompt and pull the LibreTranslate Docker image:
+     ```bash
+     docker pull libretranslate/libretranslate
+     ```
+   - Run the LibreTranslate container locally:
+     ```bash
+     docker run -d -p 5000:5000 libretranslate/libretranslate
+     ```
+   - This command will run LibreTranslate on `http://localhost:5000`.
+
+
+FR restricted
+
+docker run -d -p 5000:5000 libretranslate/libretranslate --load-only en,fr 

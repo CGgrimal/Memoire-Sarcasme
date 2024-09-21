@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
+import sys
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 from gensim.models import KeyedVectors
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Bidirectional, Dropout, BatchNormalization, Flatten
@@ -10,7 +12,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.utils import Sequence
 
 class DataGenerator(Sequence):
-    def __init__(self, texts, labels, word_vectors, batch_size=128, max_len=100, shuffle=True, **kwargs):
+    def __init__(self, texts, labels, word_vectors, batch_size=128, max_len=300, shuffle=True, **kwargs):
         super().__init__(**kwargs)
         self.texts = texts
         self.labels = labels
@@ -45,7 +47,6 @@ class DataGenerator(Sequence):
         sequences_padded = pad_sequences(sequences, maxlen=self.max_len, dtype='float32', padding='post', truncating='post', value=0.0)
         return np.array(sequences_padded)
 
-
 def load_data(filename):
     filename = filename + ".csv"
     column_name = "comment"
@@ -73,8 +74,11 @@ def build_model(input_shape, output_size=20):
     return model
 
 def main():
-    dataset_filename = str(input("Dataset filename: "))
-    word_vectors_filename = str(input("word vectors (kv) file: "))
+    if len(sys.argv) != 3:
+        sys.exit("Usage: python3 Bi_LSTM_v5_nonverbal.py dataset.csv word_vectors.kv")
+
+    dataset_filename = sys.argv[1]
+    word_vectors_filename = sys.argv[2]
     texts, labels = load_data(dataset_filename)
     word_vectors = load_word_vectors(word_vectors_filename)
 
@@ -82,7 +86,7 @@ def main():
 
     X_train, X_test, y_train, y_test = train_test_split(texts, labels, test_size=0.2, random_state=42)
 
-    max_len = 200  # Cap the maximum length to a manageable value
+    max_len = 300  # Cap the maximum length to a manageable value
 
     train_generator = DataGenerator(X_train, y_train, word_vectors, max_len=max_len)
     test_generator = DataGenerator(X_test, y_test, word_vectors, max_len=max_len, shuffle=False)
@@ -99,8 +103,20 @@ def main():
     loss, accuracy = model.evaluate(test_generator)
     print(f'Test accuracy: {accuracy}')
 
-    model.save("bidirectional_lstm_model.keras")
+    y_pred_prob = model.predict(test_generator)
+    y_pred = (y_pred_prob > 0.5).astype(int)
+
+    y_test_actual = []
+    for _, y in test_generator:
+        y_test_actual.extend(y)
+
+    y_test_actual = np.array(y_test_actual)
+    print(classification_report(y_test_actual, y_pred, target_names = ['Class 0', 'Class 1']))
+
+    model.save("bi_LSTM_model_latest.keras")
     print("Model saved successfully")
+
+    
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,249 @@
+      copying gensim\test\test_data\old_keyedvectors_320.dat -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\pang_lee_polarity.cor -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\pang_lee_polarity_fasttext.bin -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\pang_lee_polarity_fasttext.vec -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\para2para_text1.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\para2para_text2.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phraser-3.6.0.model -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phraser-no-common-terms.pkl -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phraser-no-scoring.pkl -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phraser-scoring-str.pkl -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phrases-3.6.0.model -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phrases-no-common-terms.pkl -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phrases-no-scoring.pkl -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\phrases-scoring-str.pkl -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\poincare_cp852.tsv -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\poincare_hypernyms.tsv -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\poincare_hypernyms_large.tsv -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\poincare_test_3.4.0 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\poincare_utf8.tsv -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\poincare_vectors.bin -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\pre_0_13_2_model -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\pre_0_13_2_model.state -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\pretrained.vec -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\questions-words.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\reproduce.dat -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\reproduce.dat.gz -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\similarities0-1.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\simlex999.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\small_tag_doc_5_iter50 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_corpus_ok.mm -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_corpus_small.mm -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_glove.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_mmcorpus_corrupt.mm -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_mmcorpus_no_index.mm -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_mmcorpus_no_index.mm.bz2 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_mmcorpus_no_index.mm.gz -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_mmcorpus_overflow.mm -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_mmcorpus_with_index.mm -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\test_mmcorpus_with_index.mm.index -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.blei -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.blei.index -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.blei.vocab -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.low -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.low.index -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.mallet -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.mallet.index -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.mm -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.mm.index -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.svmlight -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.svmlight.index -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.uci -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.uci.index -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.uci.vocab -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\testcorpus.xml.bz2 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\tfidf_model.tst -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\tfidf_model.tst.bz2 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\tfidf_model_3_2.tst -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\toy-data.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\toy-model-pretrained.bin -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\toy-model.bin -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\toy-model.vec -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\varembed_lee_subcorpus.cor -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\varembed_morfessor.bin -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\varembed_vectors.pkl -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\w2v-lee-v0.12.0 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\w2v_keyedvectors_load_test.modeldata -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\w2v_keyedvectors_load_test.vocab -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_3.3 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_old -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_old_sep -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_old_sep.syn0_lockf.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_old_sep.syn1neg.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_c -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_py2 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_py3 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_py3_4 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py2 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py2.neg_labels.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py2.syn0.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py2.syn0_lockf.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py2.syn1neg.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3.neg_labels.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3.syn0.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3.syn0_lockf.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3.syn1neg.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3_4 -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3_4.neg_labels.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3_4.syn0.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3_4.syn0_lockf.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\word2vec_pre_kv_sep_py3_4.syn1neg.npy -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      copying gensim\test\test_data\wordsim353.tsv -> build\lib.win-amd64-cpython-39\gensim\test\test_data
+      creating build\lib.win-amd64-cpython-39\gensim\test\test_data\DTM
+      copying gensim\test\test_data\DTM\ldaseq_3_0_1_model -> build\lib.win-amd64-cpython-39\gensim\test\test_data\DTM
+      copying gensim\test\test_data\DTM\sstats_test.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data\DTM
+      creating build\lib.win-amd64-cpython-39\gensim\test\test_data\PathLineSentences
+      copying gensim\test\test_data\PathLineSentences\1.txt -> build\lib.win-amd64-cpython-39\gensim\test\test_data\PathLineSentences
+      copying gensim\test\test_data\PathLineSentences\2.txt.bz2 -> build\lib.win-amd64-cpython-39\gensim\test\test_data\PathLineSentences
+      creating build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.12.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.12.1.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.12.2.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.12.3.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.12.4.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.13.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.13.1.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.13.2.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.13.3.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_0.13.4.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_1.0.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_1.0.1.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_2.0.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_2.1.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_2.2.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_2.3.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_3.0.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_3.1.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_3.2.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_3.3.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      copying gensim\test\test_data\old_d2v_models\d2v_3.4.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_d2v_models
+      creating build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.12.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.12.1.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.12.2.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.12.3.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.12.4.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.13.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.13.1.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.13.2.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.13.3.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_0.13.4.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_1.0.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_1.0.1.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_2.0.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_2.1.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_2.2.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_2.3.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_3.0.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_3.1.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_3.2.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_3.3.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      copying gensim\test\test_data\old_w2v_models\w2v_3.4.0.mdl -> build\lib.win-amd64-cpython-39\gensim\test\test_data\old_w2v_models
+      running build_ext
+      building 'gensim.models.word2vec_inner' extension
+      error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for gensim
+Failed to build gensim
+ERROR: Could not build wheels for gensim, which is required to install pyproject.toml-based projects
+
+C:\Users\kagri\Documents\Travail\Memoire (Data)>pip install git+https://github.com/piskvorky/gensim.git@develop
+Collecting git+https://github.com/piskvorky/gensim.git@develop
+  Cloning https://github.com/piskvorky/gensim.git (to revision develop) to c:\users\kagri\appdata\local\temp\pip-req-build-2ez6ou5f
+  Running command git clone --filter=blob:none --quiet https://github.com/piskvorky/gensim.git 'C:\Users\kagri\AppData\Local\Temp\pip-req-build-2ez6ou5f'
+  Resolved https://github.com/piskvorky/gensim.git to commit dc5b5c48e7454fe22cf98ddac60ff85107226f6a
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting numpy<2.0,>=1.18.5 (from gensim==4.3.2.dev0)
+  Using cached numpy-1.26.4-cp39-cp39-win_amd64.whl.metadata (61 kB)
+Requirement already satisfied: scipy>=1.7.0 in c:\users\kagri\appdata\local\programs\python\python39\lib\site-packages (from gensim==4.3.2.dev0) (1.13.1)
+Requirement already satisfied: smart-open>=1.8.1 in c:\users\kagri\appdata\local\programs\python\python39\lib\site-packages (from gensim==4.3.2.dev0) (7.0.4)
+Requirement already satisfied: wrapt in c:\users\kagri\appdata\local\programs\python\python39\lib\site-packages (from smart-open>=1.8.1->gensim==4.3.2.dev0) (1.14.0)
+Using cached numpy-1.26.4-cp39-cp39-win_amd64.whl (15.8 MB)
+Building wheels for collected packages: gensim
+  Building wheel for gensim (pyproject.toml) ... done
+  Created wheel for gensim: filename=gensim-4.3.2.dev0-cp39-cp39-win_amd64.whl size=23953421 sha256=51499df80e7a80270f0c2756c75cfb53a2107a627cfa69ba3fbe93b8ffe11b13
+  Stored in directory: C:\Users\kagri\AppData\Local\Temp\pip-ephem-wheel-cache-qwqd2x1z\wheels\44\9c\3d\7e8934a233a6c5e255d88b807fa5146cf34a6e9e302e102aa6
+Successfully built gensim
+Installing collected packages: numpy, gensim
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.0.0
+    Uninstalling numpy-2.0.0:
+      Successfully uninstalled numpy-2.0.0
+  Attempting uninstall: gensim
+    Found existing installation: gensim 4.3.2
+    Uninstalling gensim-4.3.2:
+      Successfully uninstalled gensim-4.3.2
+Successfully installed gensim-4.3.2.dev0 numpy-1.26.4
+
+C:\Users\kagri\Documents\Travail\Memoire (Data)>pre-processor.py
+Filename: reduced_1000.csv
+Traceback (most recent call last):
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 46, in <module>
+    main()
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 27, in main
+    df = pd.read_csv(filename)
+  File "C:\Users\kagri\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\kagri\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 626, in _read
+    return parser.read(nrows)
+  File "C:\Users\kagri\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\readers.py", line 1923, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+  File "C:\Users\kagri\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "parsers.pyx", line 838, in pandas._libs.parsers.TextReader.read_low_memory
+  File "parsers.pyx", line 905, in pandas._libs.parsers.TextReader._read_rows
+  File "parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "parsers.pyx", line 2061, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 3 fields in line 6, saw 4
+
+
+C:\Users\kagri\Documents\Travail\Memoire (Data)>pre-processor.py
+Filename: reduced_1000.csv
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\kagri\AppData\Roaming\nltk_data...
+[nltk_data]   Unzipping tokenizers\punkt.zip.
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\kagri\AppData\Roaming\nltk_data...
+[nltk_data]   Unzipping corpora\stopwords.zip.
+Traceback (most recent call last):
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 46, in <module>
+    main()
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 35, in main
+    processed_texts = [preprocess_text(text) for text in texts]
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 35, in <listcomp>
+    processed_texts = [preprocess_text(text) for text in texts]
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 21, in preprocess_text
+    words = [stemmer.stem(word) for word in words if word.lower() not in stop_words]
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 21, in <listcomp>
+    words = [stemmer.stem(word) for word in words if word.lower() not in stop_words]
+NameError: name 'stop_words' is not defined
+
+C:\Users\kagri\Documents\Travail\Memoire (Data)>pre-processor.py
+Filename: reduced_1000.csv
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\kagri\AppData\Roaming\nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\kagri\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+Traceback (most recent call last):
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 47, in <module>
+    main()
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 36, in main
+    processed_texts = [preprocess_text(text) for text in texts]
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 36, in <listcomp>
+    processed_texts = [preprocess_text(text) for text in texts]
+  File "C:\Users\kagri\Documents\Travail\Memoire (Data)\pre-processor.py", line 19, in preprocess_text
+    text = re.sub(r'[^\w\s]', '', text)
+  File "C:\Users\kagri\AppData\Local\Programs\Python\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+
+C:\Users\kagri\Documents\Travail\Memoire (Data)>
