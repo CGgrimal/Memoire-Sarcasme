@@ -41,7 +41,7 @@ class DataGenerator(Sequence):
     def __data_generation(self, texts_temp):
         sequences = []
         for text in texts_temp:
-            words = text.split()  # Assuming texts are preprocessed and tokenized
+            words = text.split()  
             seq = [self.word_vectors[word] if word in self.word_vectors else np.zeros(self.word_vectors.vector_size) for word in words]
             sequences.append(seq)
         sequences_padded = pad_sequences(sequences, maxlen=self.max_len, dtype='float32', padding='post', truncating='post', value=0.0)
