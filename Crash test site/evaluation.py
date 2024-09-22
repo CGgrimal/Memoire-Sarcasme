@@ -47,20 +47,27 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     model = load_model(model_path)
 
     # Predict on the test set
+    print("predicting...")
     y_pred_prob = model.predict(test_generator)
+    print("predicting done")
     y_pred = (y_pred_prob > 0.5).astype(int)
 
     # Extract actual test labels
+    print("concatenating...")
     y_test_actual = np.concatenate([y for _, y in test_generator])
-
+    print("concatenating done")
     y_test_actual = np.array(y_test_actual)
-
+    print("calculations set")
     # Calculate evaluation metrics
     accuracy = accuracy_score(y_test_actual, y_pred)
+    print("accuracy done")
     precision = precision_score(y_test_actual, y_pred)
+    print("precision done")
     recall = recall_score(y_test_actual, y_pred)
+    print("recall done")
     f1 = f1_score(y_test_actual, y_pred)
-
+    print("f1 done")
+    
     print(f"Accuracy: {accuracy}")
     print(f"Precision: {precision}")
     print(f"Recall: {recall}")
