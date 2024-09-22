@@ -119,7 +119,7 @@ def main():
     loss, accuracy = model.evaluate(test_generator)
     print(f'Test accuracy: {accuracy}')
     print(f'Test Loss: {loss}')
-
+    """
     # Predict
     y_pred_prob = model.predict(test_generator)
     y_pred = (y_pred_prob > 0.5).astype(int)
@@ -133,7 +133,7 @@ def main():
 
     # Classification report
     print(classification_report(y_test_actual, y_pred, target_names=['Class 0', 'Class 1']))
-
+    """
 
 if __name__ == "__main__":
     main()
