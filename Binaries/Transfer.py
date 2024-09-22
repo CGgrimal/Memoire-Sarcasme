@@ -83,9 +83,9 @@ def load_and_reduce_word_vectors(filename, target_dim=200):
     
     # Return the reduced vectors in a dictionary-like format for easy access
     return reduced_vectors
+
 def modify_output_layer(model, num_classes):
-    # Modify the last layer to match the number of target classes
-    model.pop()  # Remove the original output layer
+    model.pop()
     output_layer = Dense(num_classes, activation='softmax' if num_classes > 1 else 'sigmoid', name='new_output')
     model.add(output_layer)
     optimizer = RMSprop(learning_rate=0.001)
@@ -109,9 +109,6 @@ def fine_tune_model(model):
     return model
 
 def retrain_top_layers(model):
-    """
-    Retrain the top layers by unlocking them for training.
-    """
     # Unlock the top layers
     for layer in model.layers:
         layer.trainable = True
@@ -137,7 +134,7 @@ def main():
     # Split data into training and test sets
     X_train, X_test, y_train, y_test = train_test_split(texts, labels, test_size=0.2, random_state=42)
 
-    max_len = 200  # Use the same max_len as in the English model
+    max_len = 300  # Use the same max_len as in the English model
 
     train_generator = DataGenerator(X_train, y_train, word_vectors, max_len=max_len)
     test_generator = DataGenerator(X_test, y_test, word_vectors, max_len=max_len, shuffle=False)
@@ -149,7 +146,7 @@ def main():
     model = fine_tune_model(model)
 
     # Modify the output layer to match the number of classes in the new dataset
-    # This option is completely superflous, but it was added early to accomodate the originally intended dataset and I cant be bothered to remove it at this point
+    # This is completely superflous, but it was added early to accomodate the originally intended dataset and I cant be bothered to remove it at this point
     num_classes = 1 #this is set to 1 as the current dataset has only 2 classes, but if things ever evolve you know where to find me
     model = modify_output_layer(model, num_classes)
 
@@ -165,10 +162,6 @@ def main():
 
     # Continue training the entire model
     model.fit(train_generator, epochs=10, validation_data=test_generator, callbacks=[early_stopping, reduce_lr])
-
-    # Evaluate the model
-    loss, accuracy = model.evaluate(test_generator)
-    print(f'Test accuracy: {accuracy}')
 
     # Save the updated model
     model.save("transfer_learning_model_fine_tuned.keras")

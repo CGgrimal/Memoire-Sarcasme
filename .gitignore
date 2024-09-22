@@ -1,1 +1,12 @@
 *.csv
+*.bin
+Archive/Evaluation/__pycache__/Bi_LSTM_v5.cpython-312.pyc
+Archive/Evaluation/__pycache__/Transfer_fasttext_v3.cpython-312.pyc
+Archive/preprocessing/r1000_customvecs_text_vectors.npy
+Archive/preprocessing/r1000_customvecs_vectorized.model
+Archive/preprocessing/r1000_customvecs_vectorized.model.syn1neg.npy
+Archive/preprocessing/r1000_customvecs_vectorized.model.wv.vectors.npy
+Archive/preprocessing/r1000_customvecs_word_vectors.kv
+Archive/preprocessing/r1000_customvecs_word_vectors.kv.vectors.npy
+Archive/Bi LSTM/__pycache__/Bi_LSTM_v5.cpython-39.pyc
+Archive/Bi LSTM/__init__.py
