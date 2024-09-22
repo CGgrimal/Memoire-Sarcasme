@@ -7,6 +7,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.model_selection import train_test_split
 from Bi_LSTM import DataGenerator
 from Transfer import load_and_reduce_word_vectors
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.utils import Sequence
 
 def load_data(filename, form):
     df = pd.read_csv(filename, sep='|', header=0)
