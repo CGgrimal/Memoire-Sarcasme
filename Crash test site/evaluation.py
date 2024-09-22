@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from Bi_LSTM import DataGenerator
 from Transfer import load_and_reduce_word_vectors
 
-def load_data(filenamem, form):
+def load_data(filename, form):
     df = pd.read_csv(filename, sep='|', header=0)
     if form == "en":
         texts = df['comment'].tolist()
@@ -27,7 +27,7 @@ def load_word_vectors_fr(filename):
 
 def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, max_len=300):
     # Load the data
-    texts, labels = load_data(dataset_filename)
+    texts, labels = load_data(dataset_filename, form)
 
     # Load word vectors (ensure binary=True for FastText .bin format)
     if form == "en":
