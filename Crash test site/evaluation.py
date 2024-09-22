@@ -68,7 +68,7 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     print(f"Recall: {recall}")
     print(f"F1 Score: {f1}")
 
-    with open("test_logs.txt", 'w') as file:
+    with open("test_logs.txt", 'a') as file:
         file.write(f"Model: {model_path}\n")
         file.write(f"Accuracy: {accuracy}\n")
         file.write(f"Precision: {precision}\n")

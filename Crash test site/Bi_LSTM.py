@@ -23,12 +23,23 @@ class DataGenerator(Sequence):
         self.on_epoch_end()
 
     def __len__(self):
+        return (len(self.texts) + self.batch_size - 1) // self.batch_size
+
+    def __getitem__(self, index):
         return int(np.floor(len(self.texts) / self.batch_size))
+        # Include an extra batch for remaining data, if necessary
+        return (len(self.texts) + self.batch_size - 1) // self.batch_size
+
 
     def __getitem__(self, index):
         indexes = self.indexes[index * self.batch_size:(index + 1) * self.batch_size]
+        start_idx = index * self.batch_size
+        end_idx = min((index + 1) * self.batch_size, len(self.texts))  
+
+        indexes = self.indexes[start_idx:end_idx] 
         texts_temp = [self.texts[k] for k in indexes]
         labels_temp = [self.labels[k] for k in indexes]
+
         X = self.__data_generation(texts_temp)
         y = np.array(labels_temp)
         return X, y
