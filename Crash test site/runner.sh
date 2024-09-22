@@ -32,5 +32,16 @@ fi
 echo "Running evaluation on Bi-LSTM..."
 python3 evaluation.py en reduced_1000.csv Bi_LSTM_r1000.keras r1000_custom_vectors_word_vectors.bin
 
+if [ ! -f Transfer.py ]; then
+    echo "transfer file not found!"
+    exit 1
+fi
+
+echo "Running Transfer learning..."
+python3 Transfer.py Bi_LSTM_r1000.keras translated_r2500.csv fasttext_fr.bin
+
+echo "Running evaluation on French model..."
+python3 evaluation.py fr translated_r2500.csv transfer_learning_model.keras fasttext_fr.bin
+
 echo "All tasks completed successfully!"
 

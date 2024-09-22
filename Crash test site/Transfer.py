@@ -164,7 +164,7 @@ def main():
     model.fit(train_generator, epochs=10, validation_data=test_generator, callbacks=[early_stopping, reduce_lr])
 
     # Save the updated model
-    model.save("transfer_learning_model_fine_tuned.keras")
+    model.save("transfer_learning_model.keras")
     print("Model saved successfully")
 
 if __name__ == "__main__":
