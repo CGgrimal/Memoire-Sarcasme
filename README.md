@@ -8,8 +8,6 @@ The complete SARC dataset initially used can be found at https://nlp.cs.princeto
 Disregard all files aside from reduced_1000.csv and/or translated_r2500.csv, and optionally the word vectors if do not plan on generating your own. 
 Do note that in the case of the French model, fasttext_fr.bin pre-trained embeddings are mandatory, unless you want to build your own.
 
-Find runner.sh executable in relevant folder 
-
 Reminder to run things in the folder they were found, if you want them to work
 
 Reminder to install requirements.txt, again, if you want things to work
