@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exec > log.txt 2>&1
+
 if [ ! -f requirements.txt ]; then
     echo "requirements.txt file not found!"
     exit 1
