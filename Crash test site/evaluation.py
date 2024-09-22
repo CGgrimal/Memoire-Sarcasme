@@ -51,9 +51,7 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     y_pred = (y_pred_prob > 0.5).astype(int)
 
     # Extract actual test labels
-    y_test_actual = []
-    for _, y in test_generator:
-        y_test_actual.extend(y)
+    y_test_actual = np.concatenate([y for _, y in test_generator])
 
     y_test_actual = np.array(y_test_actual)
 
