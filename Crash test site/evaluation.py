@@ -69,7 +69,7 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
 
 def main():
     
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         sys.exit("Usage: evaluation.py en OR fr dataset.csv model_name.keras word_vectors.bin")
     model_path = sys.argv[3]
     dataset_filename = sys.argv[2]
