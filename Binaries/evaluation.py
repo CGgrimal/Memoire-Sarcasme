@@ -42,7 +42,7 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
 
     # Prepare the test generator
     test_generator = DataGenerator(X_test, y_test, word_vectors, max_len=max_len, shuffle=False)
-
+    batches = len(test_generator)
     # Load the saved model
     model = load_model(model_path)
 
@@ -50,22 +50,30 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     y_pred_prob = model.predict(test_generator)
     y_pred = (y_pred_prob > 0.5).astype(int)
 
+
     # Extract actual test labels
-    y_test_actual = np.concatenate([y for _, y in test_generator])
-
+    y_test_actual = []
+    for i, (_, y) in enumerate(test_generator):
+        y_test_actual.extend(y)
+        if i > batches:
+            break
     y_test_actual = np.array(y_test_actual)
-
     # Calculate evaluation metrics
     accuracy = accuracy_score(y_test_actual, y_pred)
     precision = precision_score(y_test_actual, y_pred)
     recall = recall_score(y_test_actual, y_pred)
     f1 = f1_score(y_test_actual, y_pred)
-
+    
     print(f"Accuracy: {accuracy}")
     print(f"Precision: {precision}")
     print(f"Recall: {recall}")
     print(f"F1 Score: {f1}")
 
+    with open("logs.txt", 'w') as file:
+        file.write(f"Model: {model_path}\n")
+        file.write(f"Accuracy: {accuracy}\n")
+        file.write(f"Precision: {Precision}\n")
+        file.write(f"F1 Score: {f1}\n")
 
 def main():
     
