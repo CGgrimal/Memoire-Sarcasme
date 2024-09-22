@@ -7,8 +7,6 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.model_selection import train_test_split
 from Bi_LSTM import DataGenerator
 from Transfer import load_and_reduce_word_vectors
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.utils import Sequence
 
 def load_data(filename, form):
     df = pd.read_csv(filename, sep='|', header=0)
@@ -43,13 +41,13 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     # Prepare the test generator
     test_generator = DataGenerator(X_test, y_test, word_vectors, max_len=max_len, shuffle=False)
     batches = len(test_generator)
+
     # Load the saved model
     model = load_model(model_path)
 
     # Predict on the test set
     y_pred_prob = model.predict(test_generator)
     y_pred = (y_pred_prob > 0.5).astype(int)
-
 
     # Extract actual test labels
     y_test_actual = []
@@ -58,12 +56,13 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
         if i > batches:
             break
     y_test_actual = np.array(y_test_actual)
+
     # Calculate evaluation metrics
     accuracy = accuracy_score(y_test_actual, y_pred)
     precision = precision_score(y_test_actual, y_pred)
     recall = recall_score(y_test_actual, y_pred)
     f1 = f1_score(y_test_actual, y_pred)
-    
+
     print(f"Accuracy: {accuracy}")
     print(f"Precision: {precision}")
     print(f"Recall: {recall}")
@@ -72,8 +71,9 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     with open("test_logs.txt", 'w') as file:
         file.write(f"Model: {model_path}\n")
         file.write(f"Accuracy: {accuracy}\n")
-        file.write(f"Precision: {Precision}\n")
+        file.write(f"Precision: {precision}\n")
         file.write(f"F1 Score: {f1}\n")
+    
 
 def main():
     

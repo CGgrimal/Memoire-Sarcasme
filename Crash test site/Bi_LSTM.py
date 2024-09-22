@@ -23,24 +23,14 @@ class DataGenerator(Sequence):
         self.on_epoch_end()
 
     def __len__(self):
-        # Include an extra batch for remaining data, if necessary
-        return (len(self.texts) + self.batch_size - 1) // self.batch_size
-
+        return int(np.floor(len(self.texts) / self.batch_size))
 
     def __getitem__(self, index):
-        # Calculate indexes for this batch
-        start_idx = index * self.batch_size
-        end_idx = min((index + 1) * self.batch_size, len(self.texts))  # Ensure end_idx does not exceed data length
-
-        # Fetch batch data
-        indexes = self.indexes[start_idx:end_idx]  # Adjusted indexing
+        indexes = self.indexes[index * self.batch_size:(index + 1) * self.batch_size]
         texts_temp = [self.texts[k] for k in indexes]
         labels_temp = [self.labels[k] for k in indexes]
-
-        # Generate data for this batch
         X = self.__data_generation(texts_temp)
         y = np.array(labels_temp)
-
         return X, y
 
     def on_epoch_end(self):
@@ -51,12 +41,12 @@ class DataGenerator(Sequence):
     def __data_generation(self, texts_temp):
         sequences = []
         for text in texts_temp:
-            words = text.split()  
-            seq = [self.word_vectors[word] if word in self.word_vectors else np.zeros(self.word_vectors.vector_size) for word in words]
+            words = text.split()
+            seq = [self.word_vectors[word] for word in words if word in self.word_vectors]
             sequences.append(seq)
         sequences_padded = pad_sequences(sequences, maxlen=self.max_len, dtype='float32', padding='post', truncating='post', value=0.0)
         return np.array(sequences_padded)
-
+    
 def load_data(filename):
     column_name = "comment"
     label_column = "label"

@@ -1,0 +1,4 @@
+Model: bi_LSTM_model_v5_pretrained.keras
+Accuracy: 0.7687420537398854
+Precision: 0.7776992530675407
+F1 Score: 0.6717042291319151
