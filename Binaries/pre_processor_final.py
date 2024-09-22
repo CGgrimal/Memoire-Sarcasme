@@ -10,6 +10,7 @@ import numpy as np
 
 # Ensure the necessary NLTK data files are downloaded
 nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('stopwords')
 
 def preprocess_text(text):
@@ -70,7 +71,11 @@ def main():
 
     # Apply preprocessing to all texts
     processed_texts = [preprocess_text(text) for text in texts]
-
+    
+    tokenized_df = df[["comment", "label"]].copy()
+    tokenized_df["comment"] = processed_texts
+    tokenized_df.to_csv(filename_ext+"_tokens", sep='|', mode='w', index=False, header=True)
+    
     print("Sample preprocessed texts:")
     for text in processed_texts[:5]:
         print(text)
@@ -90,6 +95,7 @@ def main():
     text_vectors = np.array([np.mean([word2vec_model.wv[word] for word in text if word in word2vec_model.wv] or [np.zeros(200)], axis=0) for text in processed_texts])
     np.save(f"{output_name}_text_vectors.npy", text_vectors)
     print("Text vectors saved successfully.")
+    
 
 def check_model(filename):
     try:

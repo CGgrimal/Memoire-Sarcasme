@@ -65,7 +65,7 @@ def load_data(filename):
     labels = df[label_column].tolist()
     return texts, np.array(labels)
 
-# Load FastText word vectors and reduce dimensions using PCA
+
 def load_and_reduce_word_vectors(filename, target_dim=200):
     # Load FastText model
     word_vectors = fasttext.load_model(filename)

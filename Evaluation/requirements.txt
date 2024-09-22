@@ -1,9 +1,0 @@
-scikit-learn
-nltk
-numpy
-pandas
-tensorflow
-gensim
-scipy==1.10.1
-fasttext
-csv

@@ -74,7 +74,7 @@ def build_model(input_shape, output_size=20):
 
 def main():
     if len(sys.argv) != 3:
-        sys.exit("Usage: python3 Bi_LSTM_Final.py dataset.csv word_vectors.kv")
+        sys.exit("Usage: python3 Bi_LSTM.py dataset.csv word_vectors.kv")
 
     dataset_filename = sys.argv[1]
     word_vectors_filename = sys.argv[2]

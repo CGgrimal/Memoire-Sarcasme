@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import sys
 from tensorflow.keras.models import load_model
 from gensim.models import KeyedVectors
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
@@ -8,9 +9,12 @@ from Bi_LSTM_v5 import DataGenerator
 from Transfer_fasttext_v3 import load_and_reduce_word_vectors
 
 # Load the dataset
-def load_data(filename):
+def load_data(filenamem form):
     df = pd.read_csv(filename, sep='|', header=0)
-    texts = df['comment'].tolist()
+    if form == "en":
+        texts = df['comment'].tolist()
+    if form == "fr":
+        texts = df['translated'].tolist()
     labels = df['label'].tolist()
     return texts, np.array(labels)
 
@@ -29,7 +33,7 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     # Load word vectors (ensure binary=True for FastText .bin format)
     if form == "en":
         word_vectors = load_word_vectors_en(word_vectors_filename)
-    else:
+    if form == "fr":
         word_vectors = load_word_vectors_fr(word_vectors_filename)
     # Split the data into training and test sets
     texts = [text if isinstance(text, str) else "" for text in texts]
@@ -65,21 +69,24 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
 
 
 def main():
-    # English word2vec evaluation
-    model_path = "bi_LSTM_model_v5_pretrained.keras"  
-    dataset_filename = "reduced_1000.csv"  
-    word_vectors_filename = "google_word2vec.bin"  
+    if len(sys.argv) != 2:
+        sys.exit("Usage: evaluation.py en OR fr")
 
-    # Evaluate the English model
-    evaluate_model(model_path, dataset_filename, word_vectors_filename, "en")
+    if sys.argv[1] == "en":
+        # English word2vec evaluation
+        model_path = "bi_LSTM_model_v5_pretrained.keras"  
+        dataset_filename = "reduced_1000.csv"  
+        word_vectors_filename = "google_word2vec.bin"  
 
-    # French fasttext evaluation
-    model_path_fr = "transfer_learning_model_v0.keras"  
-    dataset_filename_fr = "translated_r2500.csv"  
-    word_vectors_filename_fr = "fasttext_fr.bin"  
+        evaluate_model(model_path, dataset_filename, word_vectors_filename, "en")
+    if sys.argv[1] == "fr":
+        # French fasttext evaluation
+        model_path_fr = "transfer_learning_model_v0.keras"  
+        dataset_filename_fr = "translated_r2500.csv"  
+        word_vectors_filename_fr = "fasttext_fr.bin"  
 
-    # Evaluate the French model
-    evaluate_model(model_path_fr, dataset_filename_fr, word_vectors_filename_fr, "fr")
+        evaluate_model(model_path_fr, dataset_filename_fr, word_vectors_filename_fr, "fr")
+    sys.exit("Unknown language option entered")
 
 if __name__ == "__main__":
     main()
