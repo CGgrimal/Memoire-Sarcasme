@@ -9,10 +9,14 @@ from Bi_LSTM import DataGenerator
 from Transfer import load_and_reduce_word_vectors
 
 def load_data(filename, form):
-    df = pd.read_csv(filename, sep='|', header=0)
     if form == "en":
+        df = pd.read_csv(filename, sep='|', header=0)
         texts = df['comment'].tolist()
     if form == "fr":
+        try:
+            df = pd.read_csv(filename, sep='|', header=0, encoding='ISO-8859-1')
+        except UnicodeDecodeError:
+            df = pd.read_csv(filename, sep='|', header=0, encoding='utf-16')
         texts = df['translated'].tolist()
     labels = df['label'].tolist()
     return texts, np.array(labels)
@@ -29,7 +33,7 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     # Load the data
     texts, labels = load_data(dataset_filename, form)
 
-    # Load word vectors (ensure binary=True for FastText .bin format)
+    # Load word vectors
     if form == "en":
         word_vectors = load_word_vectors_en(word_vectors_filename)
     if form == "fr":
@@ -40,7 +44,6 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
 
     # Prepare the test generator
     test_generator = DataGenerator(X_test, y_test, word_vectors, max_len=max_len, shuffle=False)
-    batches = len(test_generator)
 
     # Load the saved model
     model = load_model(model_path)
@@ -48,6 +51,7 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
     # Predict on the test set
     y_pred_prob = model.predict(test_generator)
     y_pred = (y_pred_prob > 0.5).astype(int)
+    batches = len(y_pred)
 
     # Extract actual test labels
     y_test_actual = []
@@ -72,7 +76,8 @@ def evaluate_model(model_path, dataset_filename, word_vectors_filename, form, ma
         file.write(f"Model: {model_path}\n")
         file.write(f"Accuracy: {accuracy}\n")
         file.write(f"Precision: {precision}\n")
-        file.write(f"F1 Score: {f1}\n")
+        file.write(f"Recall: {recall} \n")
+        file.write(f"F1 Score: {f1}\n \n")
     
 
 def main():

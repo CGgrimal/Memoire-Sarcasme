@@ -6,6 +6,7 @@ import fasttext
 from gensim.models import KeyedVectors
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
+from sklearn.metrics import precision_score, recall_score, f1_score
 from tensorflow.keras.models import load_model, Sequential
 from tensorflow.keras.layers import Dense, LSTM, Bidirectional, Dropout, BatchNormalization, Flatten, Embedding
 from tensorflow.keras.optimizers import RMSprop
@@ -29,17 +30,12 @@ class DataGenerator(Sequence):
 
     def __getitem__(self, index):
         indexes = self.indexes[index * self.batch_size:(index + 1) * self.batch_size]
-        start_idx = index * self.batch_size
-        end_idx = min((index + 1) * self.batch_size, len(self.texts))  
-
-        indexes = self.indexes[start_idx:end_idx] 
         texts_temp = [self.texts[k] for k in indexes]
         labels_temp = [self.labels[k] for k in indexes]
-
         X = self.__data_generation(texts_temp)
         y = np.array(labels_temp)
         return X, y
-    
+
     def on_epoch_end(self):
         self.indexes = np.arange(len(self.texts))
         if self.shuffle:
@@ -49,7 +45,7 @@ class DataGenerator(Sequence):
         sequences = []
         for text in texts_temp:
             words = text.split()
-            seq = [self.word_vectors[word] if word in self.word_vectors else np.zeros(200) for word in words]
+            seq = [self.word_vectors[word] for word in words if word in self.word_vectors]
             sequences.append(seq)
         sequences_padded = pad_sequences(sequences, maxlen=self.max_len, dtype='float32', padding='post', truncating='post', value=0.0)
         return np.array(sequences_padded)
@@ -109,6 +105,28 @@ def fine_tune_model(model):
 
     return model
 
+
+def evaluate_model(model, test_generator):
+    y_pred_prob = model.predict(test_generator)
+    y_pred = (y_pred_prob > 0.5).astype(int)  # Convert probabilities to binary predictions
+
+    y_true = []
+    for _, y in test_generator:
+        y_true.extend(y)
+    
+    y_true = np.array(y_true)
+    
+    # Calculate precision, recall, and F1 score
+    precision = precision_score(y_true, y_pred)
+    recall = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+
+    print(f"Precision: {precision}")
+    print(f"Recall: {recall}")
+    print(f"F1 Score: {f1}")
+
+    return precision, recall, f1
+
 def main():
     if len(sys.argv) != 4:
         sys.exit("Usage: python3 Transfer.py pretrained_model.keras translated_dataset.csv word_vectors.bin")
@@ -136,8 +154,7 @@ def main():
     model = fine_tune_model(model)
 
     # Modify the output layer to match the number of classes in the new dataset
-    # This is completely superflous, but it was added early to accomodate the originally intended dataset and I cant be bothered to remove it at this point
-    num_classes = 1 #this is set to 1 as the current dataset has only 2 classes, but if things ever evolve you know where to find me
+    num_classes = 1  # Set to 1 as this is binary classification
     model = modify_output_layer(model, num_classes)
 
     # Set up callbacks
@@ -150,6 +167,16 @@ def main():
     # Save the updated model
     model.save("transfer_learning_model.keras")
     print("Model saved successfully")
+
+    # After training, evaluate the model
+    precision, recall, f1 = evaluate_model(model, test_generator)
+    
+    # Optionally, save the evaluation metrics to a file
+    with open("evaluation_metrics.txt", "a") as f:
+        f.write(f"Precision: {precision}\n")
+        f.write(f"Recall: {recall}\n")
+        f.write(f"F1 Score: {f1}\n")
+        print("Evaluation metrics saved.")
 
 if __name__ == "__main__":
     main()

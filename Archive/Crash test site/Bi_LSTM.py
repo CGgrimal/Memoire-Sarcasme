@@ -23,12 +23,17 @@ class DataGenerator(Sequence):
         self.on_epoch_end()
 
     def __len__(self):
-        return int(np.floor(len(self.texts) / self.batch_size))
+        return (len(self.texts) + self.batch_size - 1) // self.batch_size
 
     def __getitem__(self, index):
         indexes = self.indexes[index * self.batch_size:(index + 1) * self.batch_size]
+        start_idx = index * self.batch_size
+        end_idx = min((index + 1) * self.batch_size, len(self.texts))  
+
+        indexes = self.indexes[start_idx:end_idx] 
         texts_temp = [self.texts[k] for k in indexes]
         labels_temp = [self.labels[k] for k in indexes]
+
         X = self.__data_generation(texts_temp)
         y = np.array(labels_temp)
         return X, y
@@ -41,12 +46,12 @@ class DataGenerator(Sequence):
     def __data_generation(self, texts_temp):
         sequences = []
         for text in texts_temp:
-            words = text.split()  
-            seq = [self.word_vectors[word] if word in self.word_vectors else np.zeros(self.word_vectors.vector_size) for word in words]
+            words = text.split()
+            seq = [self.word_vectors[word] if word in self.word_vectors else np.zeros(200) for word in words]
             sequences.append(seq)
         sequences_padded = pad_sequences(sequences, maxlen=self.max_len, dtype='float32', padding='post', truncating='post', value=0.0)
         return np.array(sequences_padded)
-
+    
 def load_data(filename):
     column_name = "comment"
     label_column = "label"
@@ -58,7 +63,7 @@ def load_data(filename):
     return texts, np.array(labels)
 
 def load_word_vectors(filename):
-    return KeyedVectors.load(filename)
+    return KeyedVectors.load_word2vec_format(filename, binary=True)
 
 def build_model(input_shape, output_size=20):
     model = Sequential()
@@ -73,11 +78,12 @@ def build_model(input_shape, output_size=20):
     return model
 
 def main():
-    if len(sys.argv) != 3:
-        sys.exit("Usage: python3 Bi_LSTM.py dataset.csv word_vectors.kv")
+    if len(sys.argv) != 4:
+        sys.exit("Usage: python3 Bi_LSTM.py dataset.csv word_vectors.bin output_prefix")
 
     dataset_filename = sys.argv[1]
     word_vectors_filename = sys.argv[2]
+    output_prefix = sys.argv[3]
 
     # Load the dataset
     texts, labels = load_data(dataset_filename)
@@ -109,11 +115,16 @@ def main():
 
     # Train the model
     model.fit(train_generator, epochs=14, validation_data=test_generator, callbacks=[early_stopping, reduce_lr])
-    """
+
+    # Save the model
+    model.save(f"{output_prefix}.keras")
+    print("Model saved successfully")
+    
     # Evaluate the model
     loss, accuracy = model.evaluate(test_generator)
     print(f'Test accuracy: {accuracy}')
-
+    print(f'Test Loss: {loss}')
+    """
     # Predict
     y_pred_prob = model.predict(test_generator)
     y_pred = (y_pred_prob > 0.5).astype(int)
@@ -128,10 +139,6 @@ def main():
     # Classification report
     print(classification_report(y_test_actual, y_pred, target_names=['Class 0', 'Class 1']))
     """
-    # Save the model
-    model.save("bi_LSTM_model_latest.keras")
-    print("Model saved successfully")
-
 
 if __name__ == "__main__":
     main()
